@@ -1,0 +1,59 @@
+﻿<Window x:Class="r0678304_Examen_2021.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:r0678304_Examen_2021"
+        mc:Ignorable="d"
+        Title="Arno Slabbinck - r0678304" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Medewerkers" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        <ListBox x:Name="Medewerkers" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" ItemsSource="{Binding Path=PloegMedewerkers}" DisplayMemberPath="{Binding Path=Naam}" SelectedItem="{Binding Path=PloegMedewerker}" SelectionChanged="Medewerkers_SelectionChanged">
+                  
+        </ListBox>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.RowSpan="2" Grid.Column="2">
+            <TextBlock Text="Naam" Margin="5"/>
+            <TextBlock Text="Ploeg" Margin="5"/>
+            <TextBlock Text="Aantal Wedstrijden" Margin="5"/>
+            <TextBlock x:Name="startgeldText" Text="Stargeld" Margin="5" Visibility="Hidden"/>
+            <TextBlock x:Name="loonText" Text="Loon" Margin="5" Visibility="Hidden"/>
+            <TextBlock x:Name="disciplineText" Text="Disciple" Margin="5" Visibility="Hidden"/>
+            
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" >
+            <TextBox x:Name="naam" Width="250" Height="20" Margin="100,2,0,0" />
+            <TextBox x:Name="ploeg" Width="250" Height="20" Margin="100,2,0,0"/>
+            <TextBox  x:Name="wedstrijden" Width="250" Height="20" Margin="100,2,0,0"/>
+            <TextBox  x:Name="startgeld" Width="250" Height="20" Margin="100,10,0,0" Visibility="Hidden"/>
+            <TextBox  x:Name="loon" Width="250" Height="20" Margin="100,10,0,0" Visibility="Hidden"/>
+            <ComboBox Name="disciple" Width="250" ItemsSource="{Binding Path=Disciples}" Visibility="Hidden" Height="20" Margin="100,10,0,0"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="2">
+            <Button x:Name="Toevoegen"  Click="Toevoegen_Click" Content="Toevoegen" Height="30" Width="100" Margin="10" VerticalAlignment="Bottom"/>
+            <Button x:Name="ToonDetail" Click="ToonDetail_Click" Content="Toon Detail" Height="30" Width="100" Margin="10" VerticalAlignment="Bottom"/>
+            <Button x:Name="Sluiten" Click="Sluiten_Click" Content="Sluiten" Height="30" Width="100" Margin="10"  VerticalAlignment="Bottom"/>
+        </StackPanel>
+
+        <Border Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" BorderThickness="1" Width="200" Height="75" Margin="0,0,0,0">
+            <StackPanel Orientation="Vertical" >
+                <CheckBox x:Name="Check_Medewerker" Content="Ploegmedewerker"  IsChecked="False" Margin="3" Checked="Check_Medewerker_Checked" />
+                <CheckBox x:Name="Check_Wielrenner" Content="Wielrenner" IsChecked="False" Margin="3" Checked="Check_Medewerker_Checked" />
+                <CheckBox x:Name="Check_ProfWielrenner" Content="Prof" IsChecked="False" Margin="3" Checked="Check_Medewerker_Checked"/>
+            </StackPanel>
+        </Border>
+        
+        
+    </Grid>
+</Window>
